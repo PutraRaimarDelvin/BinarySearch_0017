@@ -42,9 +42,20 @@ void bubbleSortArray()
     } while (pass <= nPanjang - 1);
 }
 
+void display()
+{
+    cout << "\nHasil sorting:\n";
+    for (int i = 0; i < nPanjang; i++)
+    {
+        cout << element[i] << " ";
+    }
+    cout << endl;
+}
+
 int main()
 {
     input();
     bubbleSortArray();
+    display();
     return 0;
 }
