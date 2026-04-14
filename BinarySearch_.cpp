@@ -3,6 +3,7 @@ using namespace std;
 
 int element[10];
 int nPanjang;
+int x;
 
 void input()
 {
@@ -52,10 +53,41 @@ void display()
     cout << endl;
 }
 
+void binarySearch()
+{
+    int low = 0;
+    int high = nPanjang - 1;
+
+    cout << "Masukkan angka yang dicari: ";
+    cin >> x;
+
+    while (low <= high)
+    {
+        int mid = (low + high) / 2;
+
+        if (element[mid] == x)
+        {
+            cout << "Ditemukan di indeks " << mid << endl;
+            return;
+        }
+        else if (x < element[mid])
+        {
+            high = mid - 1;
+        }
+        else
+        {
+            low = mid + 1;
+        }
+    }
+
+    cout << "Tidak ditemukan\n";
+}
+
 int main()
 {
     input();
     bubbleSortArray();
     display();
+    binarySearch();
     return 0;
 }
