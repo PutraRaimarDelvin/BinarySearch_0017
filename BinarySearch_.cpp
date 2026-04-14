@@ -6,8 +6,16 @@ int nPanjang;
 
 void input()
 {
-    cout << "Masukkan jumlah elemen: ";
-    cin >> nPanjang;
+    while (true)
+    {
+        cout << "Masukkan jumlah elemen (max 10): ";
+        cin >> nPanjang;
+
+        if (nPanjang <= 10)
+            break;
+        else
+            cout << "Jumlah tidak boleh lebih dari 10!\n";
+    }
 }
 
 int main()
