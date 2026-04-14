@@ -18,6 +18,10 @@ void input()
             cout << "Jumlah tidak boleh lebih dari 10!\n";
     }
 
+    cout << "\n=============================================\n";
+    cout << "          Masukkan Elemen Array              \n";
+    cout << "=============================================\n";
+
     for (int i = 0; i < nPanjang; i++)
     {
         cout << "Data ke-" << i + 1 << ": ";
@@ -45,10 +49,17 @@ void bubbleSortArray()
 
 void display()
 {
-    cout << "\nHasil sorting:\n";
+    cout << "\n=============================================\n";
+    cout << "     Hasil Sorting (Ascending Order)         \n";
+    cout << "=============================================\n";
+
     for (int i = 0; i < nPanjang; i++)
     {
-        cout << element[i] << " ";
+        cout << element[i];
+        if (i < nPanjang - 1)
+        {
+            cout << " -> ";
+        }
     }
     cout << endl;
 }
@@ -61,8 +72,10 @@ void binarySearch()
         int low = 0;
         int high = nPanjang - 1;
 
-        cout << "Masukkan angka yang dicari: ";
+        cout << "\nMasukkan angka yang dicari: ";
         cin >> x;
+
+        bool ditemukan = false;
 
         while (low <= high)
         {
@@ -70,7 +83,8 @@ void binarySearch()
 
             if (element[mid] == x)
             {
-                cout << "Ditemukan di indeks " << mid << endl;
+                cout << "[✓] Data ditemukan di indeks " << mid << endl;
+                ditemukan = true;
                 break;
             }
             else if (x < element[mid])
@@ -83,9 +97,9 @@ void binarySearch()
             }
         }
 
-        if (low > high)
+        if (!ditemukan)
         {
-            cout << "Tidak ditemukan\n";
+            cout << "[x] Data tidak ditemukan\n";
         }
 
         cout << "Cari lagi? (y/n): ";
